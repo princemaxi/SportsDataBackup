@@ -74,6 +74,7 @@ def save_to_s3(data, file_name):
     except Exception as e:
         print(f"Error saving to S3: {e}")
 
+
 def store_highlights_to_dynamodb(highlights):
     """
     Store each highlight record into a DynamoDB table.
@@ -86,14 +87,14 @@ def store_highlights_to_dynamodb(highlights):
         # Iterate over each highlight record and store it.
         for record in highlights.get("data", []):
             # Use the 'id' field if available, or fallback to 'url'
-            item_key = record.get("id") or record.get("url")
+            item_key = record.get("HighlightID") or record.get("id") or record.get("url")
             if item_key is None:
                 # Skip records without a unique identifier
                 continue
 
             # Convert the item key to a string if it's not already one.
             item_key = str(item_key)
-            record["id"] = item_key  # Ensure the record's id field is a string
+            record["ID"] = item_key  # Ensure the record's id field is a string
 
             # Optionally add the fetch date
             record["fetch_date"] = DATE
@@ -101,7 +102,7 @@ def store_highlights_to_dynamodb(highlights):
             table.put_item(Item=record)
             print(f"Stored record with key {item_key} into DynamoDB.")
     except Exception as e:
-        print(f"Error storing highlights in DynamoDB: {e}")
+        print(f"Error storing highlights in DynamoDB: {e}") 
 
 
 def process_highlights():
