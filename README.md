@@ -17,7 +17,7 @@ SportsDataBackup automates fetching sports highlights, storing data in Amazon S3
 
 Before running the project, ensure you have the following installed and set up:
 
-**1. Create a RapidAPI Account:** A RapidAPI account is required to fetch highlight images and videos. The Sports Highlights API will be used, with data from NCAA (USA College Basketball),
+**1. Create a RapidAPI Account:** A [RapidAPI](https://rapidapi.com/highlightly-api-highlightly-api-default/api/sport-highlights-api/playground/apiendpoint_16dd5813-39c6-43f0-aebe-11f891fe5149) account is required to fetch highlight images and videos. The Sports Highlights API will be used, with data from NCAA (USA College Basketball),
    which is available in the basic free plan.
 
 **2. Verify Required Dependencies**
